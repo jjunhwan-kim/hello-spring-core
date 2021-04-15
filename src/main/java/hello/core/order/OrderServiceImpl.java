@@ -11,9 +11,32 @@ public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
+/*
+    @Autowired // 주입할 대상이 없어도 동작하게 하려면 @Autowired(required = false)로 지정하면 됨
+    public void setMemberRepository(MemberRepository memberRepository) {
+        System.out.println("memberRepository = " + memberRepository);
+        this.memberRepository = memberRepository;
+    }
 
     @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        System.out.println("discountPolicy = " + discountPolicy);
+        this.discountPolicy = discountPolicy;
+    }
+*/
+/*
+    // 일반 메서드 주입
+    @Autowired
+    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+*/
+    @Autowired  // 생성자가 하나만 있다면, @Autowired를 생략해도 자동 주입됨, 스프링 빈에만 해당함
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        //System.out.println("OrderServiceImpl.OrderServiceImpl");
+        //System.out.println("memberRepository = " + memberRepository);
+        //System.out.println("discountPolicy = " + discountPolicy);
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
