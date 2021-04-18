@@ -17,7 +17,8 @@ public class BeanLifeCycleTest {
 
     @Configuration
     static class LifeCycleConfig {
-        @Bean(initMethod = "init", destroyMethod = "close") // destroyMethod="(inferred)" 가 기본값으로 설정됨
+//        @Bean(initMethod = "init", destroyMethod = "close") // destroyMethod="(inferred)" 가 기본값으로 설정됨
+        @Bean
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("http://hello-spring.dev");
